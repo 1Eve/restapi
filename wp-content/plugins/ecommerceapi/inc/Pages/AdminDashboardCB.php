@@ -1,15 +1,15 @@
 <?php
-
 /**
-*@package assessment7 
-*/
+ * @package MyPlugin
+ */
+
 namespace Inc\Pages;
 
 use Inc\Base\BaseController;
 use Inc\Api\SettingsApi;
 use \Inc\Api\CallBacks\AdminCB;
 
-class AdminDashboard extends BaseController
+class AdminDashboardCB extends BaseController
 {
     public $mainmenu;
     public $settings_api;

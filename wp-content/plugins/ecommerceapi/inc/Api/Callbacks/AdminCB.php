@@ -1,8 +1,7 @@
 <?php
-
 /**
-*@package ecommerceapi 
-*/
+ * @package MyPlugin
+ */
 
 namespace Inc\Api\CallBacks;
 

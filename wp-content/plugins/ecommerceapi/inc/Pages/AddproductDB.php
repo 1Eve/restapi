@@ -1,8 +1,7 @@
 <?php
-
 /**
-*@package ecommerceapi 
-*/
+ * @package MyPlugin
+ */
 
 
 namespace Inc\Pages;
@@ -12,56 +11,41 @@ if(!defined('ABSPATH')){
     exit;
 }
 
-class AddproductDB{
+
+
+global $namespace;
+$namespace = 'projects/v1';
+
+  class AddproductDB{
+
     function register(){
-        $this->add_product_to_db();
-        $this->enter_product_to_db();
+        $this->create_project();
     }
-    function enter_product_to_db(){
+
+    public function create_project(){
         global $wpdb;
-
-        $table_name = $wpdb->prefix.'products';
-
-        $product_details = "CREATE TABLE IF NOT EXISTS ".$table_name."(
+        $table = $wpdb->prefix . 'products';
+        $project_info = "CREATE TABLE IF NOT EXISTS " . $table . "(
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             product_name text NOT NULL,
             product_description text NOT NULL
-
         );";
-
-        require_once(ABSPATH.'wp-admin/includes/upgrade.php');
-        dbDelta($product_details);
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($project_info);
     }
 
-    function add_product_to_db(){
-        if(isset($_POST[''])){
-            $data =[
-                'product_name'=> $_POST['ProductName'],
-                'product_description'=> $_POST['ProductDescription'],   
-            ];
+  }
+  
+  $controller = new AddproductDB();
+  register_activation_hook(__FILE__, array($controller, 'activate'));
 
-            global $wpdb;
-            global $successmessage;
-            global $errormessage;
-
-            $successmessage = false;
-            $errormessage = false;
-
-            $table_name = $wpdb->prefix.'products';
-
-            $result = $wpdb->insert($table_name, $data, $format=NULL);
-
-            if($result == true){
-                $successmessage = true;
-            }else{
-                $errormessage = true;
-            }
-        }
-    }
-
-   
-    }
+  add_action('rest_api_init', 'pms_routes');
+  function pms_routes(){
     
+
+    $project_routes = new ProjectRoute();
+    $project_routes->register_routes();
+  }
 
 
 

@@ -1,9 +1,7 @@
 <?php
-
 /**
-*@package ecommerceapi 
-*/
-
+ * @package MyPlugin
+ */
 
 namespace Inc\Base;
 class Activate{

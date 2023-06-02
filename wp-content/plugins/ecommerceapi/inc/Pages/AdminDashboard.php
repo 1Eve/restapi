@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @package assessment7
+ * @package MyPlugin
  */
 
 namespace Inc\Pages;

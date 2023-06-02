@@ -1,15 +1,13 @@
 <?php
-
 /**
-*@package ecommerceapi 
-*/
-
-
+ * @package MyPlugin
+ */
 namespace Inc;
-Class init{
+
+Class Initialize{
     public static function get_services(){
         return [
-            Base\PluginStyles::class,
+            
             Pages\AdminDashboard::class,
             Api\SettingsApi::class,
             Pages\AddproductDB::class
