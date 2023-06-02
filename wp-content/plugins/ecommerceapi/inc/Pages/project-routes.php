@@ -2,6 +2,8 @@
 /**
  * @package MyPlugin
  */
+namespace Inc\Pages;
+
 
  class ProjectRoute{
 

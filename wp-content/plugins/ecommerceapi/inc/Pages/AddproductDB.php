@@ -3,7 +3,12 @@
  * @package MyPlugin
  */
 
+ namespace Inc\Pages;
 
+ use Inc\Api\CallBacks\AdminCB;
+ use Inc\Base\BaseController;
+ use Inc\Api\SettingsApi;
+ 
 namespace Inc\Pages;
 //security check 
 if(!defined('ABSPATH')){
